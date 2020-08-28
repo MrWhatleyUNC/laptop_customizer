@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-
 // Normalizes string as a slug - a string that is safe to use
 // in both URLs and html attributes
 import slugify from 'slugify';
-
-import './App.css';
+import FEATURES from './store';
+import '../styles/App.css';
 
 // This object will allow us to
 // easily convert numbers into US dollar values
@@ -32,7 +31,7 @@ class App extends Component {
         name: '15.6" UHD (3840 x 2160) 60Hz Bright Lights and Knobs',
         cost: 1500
       }
-    }
+    } 
   };
 
   updateFeature = (feature, newValue) => {
@@ -44,9 +43,9 @@ class App extends Component {
   };
 
   render() {
-    const features = Object.keys(this.props.features).map((feature, idx) => {
+    const features = Object.keys(FEATURES).map((feature, idx) => {
       const featureHash = feature + '-' + idx;
-      const options = this.props.features[feature].map(item => {
+      const options = FEATURES[feature].map(item => {
         const itemHash = slugify(JSON.stringify(item));
         return (
           <div key={itemHash} className="feature__item">
