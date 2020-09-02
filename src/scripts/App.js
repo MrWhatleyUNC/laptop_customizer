@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
-import Cart from './cart';
+// import Cart from './cart';
 import Header from './header';
-import FeaturesList from './featuresList';
-import Total from './total';
+// import FeaturesList from './featuresList';
+// import Total from './total';
+import Summary from './summary'
+import MainForm from './main-form'
 
 // This object will allow us to
 // easily convert numbers into US dollar values
@@ -41,7 +43,7 @@ class App extends Component {
       selected
     });
   };
-
+ 
   USCurrencyFormat = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD'
@@ -52,6 +54,17 @@ class App extends Component {
       <div className="App">
         <Header/>
         <main>
+        <MainForm
+          updateFeature={this.updateFeature}
+          USCurrencyFormat={this.USCurrencyFormat}
+          state= {this.state}
+          />
+        <Summary
+          USCurrencyFormat={this.USCurrencyFormat}
+          state= {this.state}
+          />
+        {/* The block below was broken up into MainForm and Summary per 
+            revision requests:
           <form className="main__form">
             <h2>Customize your laptop</h2>
             <FeaturesList 
@@ -70,7 +83,7 @@ class App extends Component {
               USCurrencyFormat={this.USCurrencyFormat}
               state= {this.state}
             />
-          </section>
+          </section> */}
         </main>
       </div>
     );

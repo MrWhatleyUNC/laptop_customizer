@@ -8,6 +8,7 @@ export default function Cart(props){
   
         return (
           <Item 
+            key={featureHash}
             id={featureHash}
             feature={feature}
             selectedOption={selectedOption}

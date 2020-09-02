@@ -9,7 +9,8 @@ export default function FeaturesList(props){
         const options = FEATURES[feature].map(item => {
           const itemHash = slugify(JSON.stringify(item));
           return (
-            <Feature 
+            <Feature
+                key= {itemHash} 
                 id= {itemHash}
                 item={item}
                 feature={feature}
